@@ -9,9 +9,6 @@ const app = express();
 const rateLimiter = require("express-rate-limit");
 const helmet = require("helmet");
 
-// database
-const connectDB = require("./db/connect");
-
 //  routers
 const tipsRouter = require("./route/Tip");
 
@@ -34,17 +31,4 @@ app.use("/api/v1/tips", tipsRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const PORT = process.env.PORT || 5000;
-
-const start = async () => {
-  try {
-    await connectDB(process.env.MONGO_URL);
-    app.listen(PORT, () =>
-      console.log(`Server is listening on port ${PORT}...`)
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
+module.exports = app;
