@@ -25,3 +25,4 @@ This is a repo for testing and new mini projects a build for refrence and learni
      - JAVASCRIPT
      - NODE
      - EXPRESS
+     - JEST X SUPERTEST
